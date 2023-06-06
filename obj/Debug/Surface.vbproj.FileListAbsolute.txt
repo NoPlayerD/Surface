@@ -1,0 +1,12 @@
+C:\Users\NoPlayer\Documents\.Surface\Surface\bin\Debug\Surface.exe.config
+C:\Users\NoPlayer\Documents\.Surface\Surface\bin\Debug\Surface.exe
+C:\Users\NoPlayer\Documents\.Surface\Surface\bin\Debug\Surface.pdb
+C:\Users\NoPlayer\Documents\.Surface\Surface\bin\Debug\Surface.xml
+C:\Users\NoPlayer\Documents\.Surface\Surface\obj\Debug\Surface.vbprojAssemblyReference.cache
+C:\Users\NoPlayer\Documents\.Surface\Surface\obj\Debug\Surface.Form1.resources
+C:\Users\NoPlayer\Documents\.Surface\Surface\obj\Debug\Surface.Resources.resources
+C:\Users\NoPlayer\Documents\.Surface\Surface\obj\Debug\Surface.vbproj.GenerateResource.cache
+C:\Users\NoPlayer\Documents\.Surface\Surface\obj\Debug\Surface.vbproj.CoreCompileInputs.cache
+C:\Users\NoPlayer\Documents\.Surface\Surface\obj\Debug\Surface.exe
+C:\Users\NoPlayer\Documents\.Surface\Surface\obj\Debug\Surface.xml
+C:\Users\NoPlayer\Documents\.Surface\Surface\obj\Debug\Surface.pdb
