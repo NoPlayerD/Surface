@@ -21,10 +21,27 @@ Public Class Form1
         Timer1.Start()
     End Sub
     Private Sub AddCategories()
+
+        Dim index As Integer = -1
+
         TreeView1.Nodes.Clear()
+
         For Each isim As String In My.Computer.FileSystem.GetDirectories(DataPath)
             Dim result As String = Path.GetFileName(isim)
             TreeView1.Nodes.Add(result)
+            index += 1
+            If Directory.GetDirectories(isim).Count > 0 Then
+
+                For Each name As String In Directory.GetDirectories(isim)
+                    Dim result2 As String = Path.GetFileName(name)
+                    If result2.Contains("#" + result + "#") Then
+                        Dim once As String = result2.Remove(0, result2.IndexOf("#") + 1)
+                        TreeView1.Nodes(index).Nodes.Add(once.Remove(0, once.IndexOf("#") + 1))
+                        'Treeview_Adder(isim, TreeView1.Nodes(index))
+                    End If
+                Next
+
+            End If
         Next
     End Sub
     Public Sub Treeview_Adder(ByVal directoryValue As String, ByVal parentNode As TreeNode)
@@ -38,7 +55,7 @@ Public Class Form1
 
                 For Each currentDirectory In directoryArray
                     Dim myNode As TreeNode = New TreeNode(currentDirectory)
-                    parentNode.Nodes.Add(myNode)
+                    parentNode.Nodes.Add(myNode.ToString.Remove(0, myNode.ToString.LastIndexOf("\") + 1))
                 Next
 
             End If
