@@ -23,6 +23,7 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.ListView1 = New System.Windows.Forms.ListView()
         Me.ListView2 = New System.Windows.Forms.ListView()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
@@ -30,6 +31,8 @@ Partial Class Form1
         Me.Button1 = New System.Windows.Forms.Button()
         Me.TreeView1 = New System.Windows.Forms.TreeView()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.imageList1 = New System.Windows.Forms.ImageList(Me.components)
+        Me.imageList2 = New System.Windows.Forms.ImageList(Me.components)
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -37,10 +40,13 @@ Partial Class Form1
         '
         Me.ListView1.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.ListView1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.ListView1.ForeColor = System.Drawing.Color.White
         Me.ListView1.HideSelection = False
+        Me.ListView1.LargeImageList = Me.imageList1
         Me.ListView1.Location = New System.Drawing.Point(124, 25)
         Me.ListView1.Name = "ListView1"
         Me.ListView1.Size = New System.Drawing.Size(360, 240)
+        Me.ListView1.SmallImageList = Me.imageList1
         Me.ListView1.TabIndex = 0
         Me.ListView1.UseCompatibleStateImageBehavior = False
         '
@@ -48,10 +54,13 @@ Partial Class Form1
         '
         Me.ListView2.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.ListView2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.ListView2.ForeColor = System.Drawing.Color.White
         Me.ListView2.HideSelection = False
+        Me.ListView2.LargeImageList = Me.imageList2
         Me.ListView2.Location = New System.Drawing.Point(124, 264)
         Me.ListView2.Name = "ListView2"
         Me.ListView2.Size = New System.Drawing.Size(360, 240)
+        Me.ListView2.SmallImageList = Me.imageList2
         Me.ListView2.TabIndex = 1
         Me.ListView2.UseCompatibleStateImageBehavior = False
         '
@@ -96,6 +105,18 @@ Partial Class Form1
         'Timer1
         '
         '
+        'imageList1
+        '
+        Me.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit
+        Me.imageList1.ImageSize = New System.Drawing.Size(32, 32)
+        Me.imageList1.TransparentColor = System.Drawing.Color.Transparent
+        '
+        'imageList2
+        '
+        Me.imageList2.ImageStream = CType(resources.GetObject("imageList2.ImageStream"), System.Windows.Forms.ImageListStreamer)
+        Me.imageList2.TransparentColor = System.Drawing.Color.Transparent
+        Me.imageList2.Images.SetKeyName(0, "folder.png")
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -127,4 +148,6 @@ Partial Class Form1
     Friend WithEvents Button1 As Button
     Friend WithEvents TreeView1 As TreeView
     Friend WithEvents Timer1 As Timer
+    Friend WithEvents imageList1 As ImageList
+    Friend WithEvents imageList2 As ImageList
 End Class

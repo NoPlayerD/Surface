@@ -1,7 +1,10 @@
 ﻿Imports System.IO
 
 Public Class Form1
-    Dim DataPath As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\Surface"
+    Dim DataPath As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\Surface\"
+
+    Dim Category_Selected As Boolean
+    Dim SubCategory_Selected
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         'Çıkış butonu
@@ -34,9 +37,9 @@ Public Class Form1
 
                 For Each name As String In Directory.GetDirectories(isim)
                     Dim result2 As String = Path.GetFileName(name)
-                    If result2.Contains("#" + result + "#") Then
-                        Dim once As String = result2.Remove(0, result2.IndexOf("#") + 1)
-                        TreeView1.Nodes(index).Nodes.Add(once.Remove(0, once.IndexOf("#") + 1))
+                    If result2.Contains("(" + result + ")") Then
+                        Dim once As String = result2.Remove(0, result2.IndexOf("(") + 1)
+                        TreeView1.Nodes(index).Nodes.Add(once.Remove(0, once.IndexOf(")") + 1))
                         'Treeview_Adder(isim, TreeView1.Nodes(index))
                     End If
                 Next
@@ -70,5 +73,76 @@ Public Class Form1
             AddCategories()
         End If
 
+        If Category_Selected = True Then
+            Category_Selected = False
+            Reloads("file")
+            Reloads("folder")
+        End If
+
+
     End Sub
+
+    Private Sub TreeView1_AfterSelect(sender As Object, e As TreeViewEventArgs) Handles TreeView1.AfterSelect
+        SubCategory_Selected = False
+        Category_Selected = True
+        If TreeView1.SelectedNode.Parent IsNot Nothing Then
+            SubCategory_Selected = True
+        End If
+
+    End Sub
+    Private Function Reloads(type As String)
+        'Reloads of listview 1 and 2
+        Try
+            Dim path As String
+            If SubCategory_Selected = False Then
+                path = DataPath + TreeView1.SelectedNode.Text
+            Else
+                Dim name As String = DataPath + TreeView1.SelectedNode.Parent.Text & "\" + "(" + TreeView1.SelectedNode.Parent.Text + ")"
+                path = name & TreeView1.SelectedNode.Text
+            End If
+
+            If type = "file" Then
+                imageList1.Images.Clear()
+                ListView1.Items.Clear()
+                ListView1.BeginUpdate()
+                Dim di As New IO.DirectoryInfo(path)
+                For Each fi As IO.FileInfo In di.GetFiles("*")
+                    Dim icons As Icon = SystemIcons.WinLogo
+                    Dim li As New ListViewItem(fi.Name, 1)
+                    If Not (imageList1.Images.ContainsKey(fi.Name)) Then
+                        icons = System.Drawing.Icon.ExtractAssociatedIcon(fi.FullName)
+                        imageList1.Images.Add(fi.Name, icons)
+                    End If
+                    icons = Icon.ExtractAssociatedIcon(fi.FullName)
+                    imageList1.Images.Add(icons)
+                    ListView1.Items.Add(fi.Name, fi.Name)
+                Next
+                ListView1.EndUpdate()
+            End If
+
+
+            If type = "folder" Then
+                ListView2.Items.Clear()
+                For Each kats In My.Computer.FileSystem.GetDirectories(path)
+                    Dim sonuc As String = kats.Split("\").Last
+                    Dim sayi As Integer = TreeView1.SelectedNode.Text.Length + 2
+                    If Not SubCategory_Selected = True Then
+                        If sonuc.Length < sayi Then
+                            ListView2.Items.Add(sonuc, 0)
+                            Exit Function
+                        End If
+                        Dim devam = sonuc.Remove(sayi, sonuc.Length - sayi)
+                        If Not devam = "(" + TreeView1.SelectedNode.Text + ")" Then
+                            ListView2.Items.Add(sonuc, 0)
+                        End If
+                    End If
+                    ListView2.Items.Add(sonuc, 0)
+                Next
+            End If
+
+        Catch ex As Exception
+            TreeView1.Nodes.Clear()
+            MsgBox(ex.Message)
+        End Try
+    End Function
 End Class
