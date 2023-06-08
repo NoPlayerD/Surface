@@ -156,7 +156,19 @@ Public Class Form1
                 Else
                     Process.Start(DataPath + TreeView1.SelectedNode.Parent.Text + "\#" + TreeView1.SelectedNode.Parent.Text + "#" + TreeView1.SelectedNode.Text + "\" + ListView1.FocusedItem.Text)
                 End If
+            End If
+        Catch ex As Exception
+        End Try
+    End Sub
 
+    Private Sub ListView2_DoubleClick(sender As Object, e As EventArgs) Handles ListView2.DoubleClick
+        Try
+            If Not ListView2.FocusedItem.Index < 0 Then
+                If TreeView1.SelectedNode.Parent Is Nothing Then
+                    Process.Start(DataPath + TreeView1.SelectedNode.Text + "\" + ListView2.FocusedItem.Text)
+                Else
+                    Process.Start(DataPath + TreeView1.SelectedNode.Parent.Text + "\#" + TreeView1.SelectedNode.Parent.Text + "#" + TreeView1.SelectedNode.Text + "\" + ListView2.FocusedItem.Text)
+                End If
             End If
         Catch ex As Exception
         End Try

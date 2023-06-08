@@ -108,6 +108,7 @@ Partial Class Form1
         '
         Me.TreeView1.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
         Me.TreeView1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TreeView1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(162, Byte))
         Me.TreeView1.ForeColor = System.Drawing.Color.Silver
         Me.TreeView1.Location = New System.Drawing.Point(0, 25)
         Me.TreeView1.Name = "TreeView1"
