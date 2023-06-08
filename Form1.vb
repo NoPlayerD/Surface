@@ -249,4 +249,21 @@ Public Class Form1
             End Try
         End If
     End Sub
+    Private Sub FileToolStripMenuItem_DropDownOpened(sender As Object, e As EventArgs) Handles FileToolStripMenuItem.DropDownOpened
+        FileToolStripMenuItem.ForeColor = Color.Black
+    End Sub
+
+    Private Sub FileToolStripMenuItem_DropDownClosed(sender As Object, e As EventArgs) Handles FileToolStripMenuItem.DropDownClosed
+        FileToolStripMenuItem.ForeColor = Color.White
+    End Sub
+
+    Private Sub FileToolStripMenuItem_MouseEnter(sender As Object, e As EventArgs) Handles FileToolStripMenuItem.MouseEnter
+        FileToolStripMenuItem.ForeColor = Color.Black
+    End Sub
+
+    Private Sub FileToolStripMenuItem_MouseLeave(sender As Object, e As EventArgs) Handles FileToolStripMenuItem.MouseLeave
+        If Not FileToolStripMenuItem.DropDown.Visible = True Then
+            FileToolStripMenuItem.ForeColor = Color.White
+        End If
+    End Sub
 End Class
