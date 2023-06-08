@@ -89,11 +89,11 @@ Public Class Form1
         End If
 
     End Sub
-    Private Function Reloads(type As String)
+    Private Sub Reloads(type As String)
         'Reloads of listview 1 and 2
         Try
             Dim path As String
-            If SubCategory_Selected = False Then
+            If TreeView1.SelectedNode.Parent Is Nothing Then
                 path = DataPath + TreeView1.SelectedNode.Text
             Else
                 Dim name As String = DataPath + TreeView1.SelectedNode.Parent.Text & "\" + "#" + TreeView1.SelectedNode.Parent.Text + "#"
@@ -125,17 +125,17 @@ Public Class Form1
                 For Each kats In My.Computer.FileSystem.GetDirectories(path)
                     Dim sonuc As String = kats.Split("\").Last
 
-                    If Not SubCategory_Selected = True Then
+                    If TreeView1.SelectedNode.Parent Is Nothing Then
                         Dim sayi As Integer = TreeView1.SelectedNode.Text.Length + 2
                         If sonuc.Length < sayi Then
                             ListView2.Items.Add(sonuc, 0)
-                            Exit Function
+                        Else
+                            Dim devam = sonuc.Remove(sayi, sonuc.Length - sayi)
+                            If Not devam.Contains("#" + TreeView1.SelectedNode.Text + "#") Then
+                                ListView2.Items.Add(sonuc, 0)
+                            End If
                         End If
-                        Dim devam = sonuc.Remove(sayi, sonuc.Length - sayi)
-                        If Not devam.Contains("#" + TreeView1.SelectedNode.Text + "#") Then
-                            ListView2.Items.Add(sonuc, 0)
-                            Exit Function
-                        End If
+
                     Else
                         ListView2.Items.Add(sonuc, 0)
                     End If
@@ -146,7 +146,7 @@ Public Class Form1
             TreeView1.Nodes.Clear()
             MsgBox(ex.Message)
         End Try
-    End Function
+    End Sub
     Private Sub ListView1_DoubleClick(sender As Object, e As EventArgs) Handles ListView1.DoubleClick
         Try
             If Not ListView1.FocusedItem.Index < 0 Then
@@ -181,5 +181,72 @@ Public Class Form1
         AddCategories()
         ListView1.Items.Clear()
         ListView2.Items.Clear()
+    End Sub
+
+    Private Sub CategoryToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CategoryToolStripMenuItem.Click
+        Dim name As String = InputBox("Name of your new Category: ")
+        If name IsNot Nothing Then
+            Try
+                Directory.CreateDirectory(DataPath + name)
+            Catch ex As Exception
+                MsgBox(ex.Message, MsgBoxStyle.Critical)
+            End Try
+        End If
+    End Sub
+
+    Private Sub SubCategoryToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SubCategoryToolStripMenuItem.Click
+        Dim name As String = InputBox("Name of your new SubCategory: ")
+        If name IsNot Nothing Then
+            Try
+                Directory.CreateDirectory(DataPath + TreeView1.SelectedNode.Text + "\#" + TreeView1.SelectedNode.Text + "#" + name)
+            Catch ex As Exception
+                MsgBox(ex.Message, MsgBoxStyle.Critical)
+            End Try
+        End If
+    End Sub
+
+    Private Sub FileToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles FileToolStripMenuItem1.Click
+        Dim f As New OpenFileDialog
+        f.Title = "Select your file to move: "
+        f.Multiselect = True
+        f.ShowDialog()
+        Dim path As String
+        If f.FileNames IsNot Nothing Then
+            If TreeView1.SelectedNode.Parent IsNot Nothing Then
+                path = DataPath + TreeView1.SelectedNode.Parent.Text + "\#" + TreeView1.SelectedNode.Parent.Text + "#" + TreeView1.SelectedNode.Text + "\"
+            Else
+                path = DataPath + TreeView1.SelectedNode.Text + "\"
+            End If
+            For Each file As String In f.FileNames
+                Try
+                    Dim safe = file.Split("\").Last
+                    My.Computer.FileSystem.MoveFile(file, path + safe)
+                Catch ex As Exception
+                    MsgBox(ex.Message, MsgBoxStyle.Critical)
+                End Try
+            Next
+        End If
+
+    End Sub
+
+    Private Sub FolderToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FolderToolStripMenuItem.Click
+        Dim f As New FolderBrowserDialog
+        f.Description = "Select your folder to move: "
+        f.ShowDialog()
+        Dim path As String
+        If Not f.SelectedPath = vbNullString Then
+            If TreeView1.SelectedNode.Parent IsNot Nothing Then
+                path = DataPath + TreeView1.SelectedNode.Parent.Text + "\#" + TreeView1.SelectedNode.Parent.Text + "#" + TreeView1.SelectedNode.Text + "\"
+            Else
+                path = DataPath + TreeView1.SelectedNode.Text + "\"
+            End If
+            Dim file As String = f.SelectedPath
+            Try
+                Dim safe = file.Split("\").Last
+                My.Computer.FileSystem.MoveDirectory(file, path + safe)
+            Catch ex As Exception
+                MsgBox(ex.Message, MsgBoxStyle.Critical)
+            End Try
+        End If
     End Sub
 End Class
