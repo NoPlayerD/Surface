@@ -177,7 +177,9 @@ Public Class Form1
         e.Cancel = True
     End Sub
 
-    Private Sub ContextMenuStrip1_Opening(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles ContextMenuStrip1.Opening
-
+    Private Sub ToolStripMenuItem7_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem7.Click
+        AddCategories()
+        ListView1.Items.Clear()
+        ListView2.Items.Clear()
     End Sub
 End Class
