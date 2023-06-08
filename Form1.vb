@@ -78,8 +78,7 @@ Public Class Form1
             Reloads("file")
             Reloads("folder")
         End If
-
-
+        TreeView1.ExpandAll()
     End Sub
 
     Private Sub TreeView1_AfterSelect(sender As Object, e As TreeViewEventArgs) Handles TreeView1.AfterSelect
@@ -172,5 +171,9 @@ Public Class Form1
             End If
         Catch ex As Exception
         End Try
+    End Sub
+
+    Private Sub TreeView1_BeforeCollapse(sender As Object, e As TreeViewCancelEventArgs) Handles TreeView1.BeforeCollapse
+        e.Cancel = True
     End Sub
 End Class

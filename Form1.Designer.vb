@@ -112,6 +112,8 @@ Partial Class Form1
         Me.TreeView1.ForeColor = System.Drawing.Color.Silver
         Me.TreeView1.Location = New System.Drawing.Point(0, 25)
         Me.TreeView1.Name = "TreeView1"
+        Me.TreeView1.ShowPlusMinus = False
+        Me.TreeView1.ShowRootLines = False
         Me.TreeView1.Size = New System.Drawing.Size(124, 455)
         Me.TreeView1.TabIndex = 4
         '
