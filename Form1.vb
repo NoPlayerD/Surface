@@ -37,9 +37,9 @@ Public Class Form1
 
                 For Each name As String In Directory.GetDirectories(isim)
                     Dim result2 As String = Path.GetFileName(name)
-                    If result2.Contains("(" + result + ")") Then
-                        Dim once As String = result2.Remove(0, result2.IndexOf("(") + 1)
-                        TreeView1.Nodes(index).Nodes.Add(once.Remove(0, once.IndexOf(")") + 1))
+                    If result2.Contains("#" + result + "#") Then
+                        Dim once As String = result2.Remove(0, result2.IndexOf("#") + 1)
+                        TreeView1.Nodes(index).Nodes.Add(once.Remove(0, once.IndexOf("#") + 1))
                         'Treeview_Adder(isim, TreeView1.Nodes(index))
                     End If
                 Next
@@ -97,7 +97,7 @@ Public Class Form1
             If SubCategory_Selected = False Then
                 path = DataPath + TreeView1.SelectedNode.Text
             Else
-                Dim name As String = DataPath + TreeView1.SelectedNode.Parent.Text & "\" + "(" + TreeView1.SelectedNode.Parent.Text + ")"
+                Dim name As String = DataPath + TreeView1.SelectedNode.Parent.Text & "\" + "#" + TreeView1.SelectedNode.Parent.Text + "#"
                 path = name & TreeView1.SelectedNode.Text
             End If
 
@@ -125,18 +125,21 @@ Public Class Form1
                 ListView2.Items.Clear()
                 For Each kats In My.Computer.FileSystem.GetDirectories(path)
                     Dim sonuc As String = kats.Split("\").Last
-                    Dim sayi As Integer = TreeView1.SelectedNode.Text.Length + 2
+
                     If Not SubCategory_Selected = True Then
+                        Dim sayi As Integer = TreeView1.SelectedNode.Text.Length + 2
                         If sonuc.Length < sayi Then
                             ListView2.Items.Add(sonuc, 0)
                             Exit Function
                         End If
                         Dim devam = sonuc.Remove(sayi, sonuc.Length - sayi)
-                        If Not devam = "(" + TreeView1.SelectedNode.Text + ")" Then
+                        If Not devam.Contains("#" + TreeView1.SelectedNode.Text + "#") Then
                             ListView2.Items.Add(sonuc, 0)
+                            Exit Function
                         End If
+                    Else
+                        ListView2.Items.Add(sonuc, 0)
                     End If
-                    ListView2.Items.Add(sonuc, 0)
                 Next
             End If
 
@@ -145,4 +148,17 @@ Public Class Form1
             MsgBox(ex.Message)
         End Try
     End Function
+    Private Sub ListView1_DoubleClick(sender As Object, e As EventArgs) Handles ListView1.DoubleClick
+        Try
+            If Not ListView1.FocusedItem.Index < 0 Then
+                If TreeView1.SelectedNode.Parent Is Nothing Then
+                    Process.Start(DataPath + TreeView1.SelectedNode.Text + "\" + ListView1.FocusedItem.Text)
+                Else
+                    Process.Start(DataPath + TreeView1.SelectedNode.Parent.Text + "\#" + TreeView1.SelectedNode.Parent.Text + "#" + TreeView1.SelectedNode.Text + "\" + ListView1.FocusedItem.Text)
+                End If
+
+            End If
+        Catch ex As Exception
+        End Try
+    End Sub
 End Class

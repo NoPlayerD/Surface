@@ -25,14 +25,14 @@ Partial Class Form1
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.ListView1 = New System.Windows.Forms.ListView()
+        Me.imageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.ListView2 = New System.Windows.Forms.ListView()
+        Me.imageList2 = New System.Windows.Forms.ImageList(Me.components)
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.TreeView1 = New System.Windows.Forms.TreeView()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.imageList1 = New System.Windows.Forms.ImageList(Me.components)
-        Me.imageList2 = New System.Windows.Forms.ImageList(Me.components)
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -50,6 +50,12 @@ Partial Class Form1
         Me.ListView1.TabIndex = 0
         Me.ListView1.UseCompatibleStateImageBehavior = False
         '
+        'imageList1
+        '
+        Me.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit
+        Me.imageList1.ImageSize = New System.Drawing.Size(32, 32)
+        Me.imageList1.TransparentColor = System.Drawing.Color.Transparent
+        '
         'ListView2
         '
         Me.ListView2.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
@@ -63,6 +69,12 @@ Partial Class Form1
         Me.ListView2.SmallImageList = Me.imageList2
         Me.ListView2.TabIndex = 1
         Me.ListView2.UseCompatibleStateImageBehavior = False
+        '
+        'imageList2
+        '
+        Me.imageList2.ImageStream = CType(resources.GetObject("imageList2.ImageStream"), System.Windows.Forms.ImageListStreamer)
+        Me.imageList2.TransparentColor = System.Drawing.Color.Transparent
+        Me.imageList2.Images.SetKeyName(0, "folder.png")
         '
         'MenuStrip1
         '
@@ -104,18 +116,6 @@ Partial Class Form1
         '
         'Timer1
         '
-        '
-        'imageList1
-        '
-        Me.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit
-        Me.imageList1.ImageSize = New System.Drawing.Size(32, 32)
-        Me.imageList1.TransparentColor = System.Drawing.Color.Transparent
-        '
-        'imageList2
-        '
-        Me.imageList2.ImageStream = CType(resources.GetObject("imageList2.ImageStream"), System.Windows.Forms.ImageListStreamer)
-        Me.imageList2.TransparentColor = System.Drawing.Color.Transparent
-        Me.imageList2.Images.SetKeyName(0, "folder.png")
         '
         'Form1
         '
