@@ -37,16 +37,13 @@ Partial Class Form1
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripMenuItem5 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem6 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.imageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.ListView2 = New System.Windows.Forms.ListView()
         Me.imageList2 = New System.Windows.Forms.ImageList(Me.components)
         Me.Button1 = New System.Windows.Forms.Button()
         Me.TreeView1 = New System.Windows.Forms.TreeView()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.ContextMenuStrip1.SuspendLayout()
-        Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'ListView1
@@ -57,9 +54,9 @@ Partial Class Form1
         Me.ListView1.ForeColor = System.Drawing.Color.White
         Me.ListView1.HideSelection = False
         Me.ListView1.LargeImageList = Me.imageList1
-        Me.ListView1.Location = New System.Drawing.Point(124, 25)
+        Me.ListView1.Location = New System.Drawing.Point(124, 0)
         Me.ListView1.Name = "ListView1"
-        Me.ListView1.Size = New System.Drawing.Size(375, 240)
+        Me.ListView1.Size = New System.Drawing.Size(375, 255)
         Me.ListView1.SmallImageList = Me.imageList1
         Me.ListView1.TabIndex = 0
         Me.ListView1.UseCompatibleStateImageBehavior = False
@@ -69,6 +66,7 @@ Partial Class Form1
         Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem7, Me.ToolStripSeparator2, Me.ToolStripMenuItem1, Me.ToolStripMenuItem8, Me.ToolStripSeparator1, Me.ToolStripMenuItem5, Me.ToolStripMenuItem6})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
         Me.ContextMenuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
+        Me.ContextMenuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Inherit
         Me.ContextMenuStrip1.ShowImageMargin = False
         Me.ContextMenuStrip1.Size = New System.Drawing.Size(89, 126)
         '
@@ -148,14 +146,6 @@ Partial Class Form1
         Me.ToolStripMenuItem6.Size = New System.Drawing.Size(88, 22)
         Me.ToolStripMenuItem6.Text = "Paste"
         '
-        'FileToolStripMenuItem
-        '
-        Me.FileToolStripMenuItem.DropDown = Me.ContextMenuStrip1
-        Me.FileToolStripMenuItem.ForeColor = System.Drawing.Color.White
-        Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
-        Me.FileToolStripMenuItem.Size = New System.Drawing.Size(37, 20)
-        Me.FileToolStripMenuItem.Text = "File"
-        '
         'imageList1
         '
         Me.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit
@@ -170,9 +160,9 @@ Partial Class Form1
         Me.ListView2.ForeColor = System.Drawing.Color.White
         Me.ListView2.HideSelection = False
         Me.ListView2.LargeImageList = Me.imageList2
-        Me.ListView2.Location = New System.Drawing.Point(124, 264)
+        Me.ListView2.Location = New System.Drawing.Point(124, 253)
         Me.ListView2.Name = "ListView2"
-        Me.ListView2.Size = New System.Drawing.Size(375, 240)
+        Me.ListView2.Size = New System.Drawing.Size(375, 255)
         Me.ListView2.SmallImageList = Me.imageList2
         Me.ListView2.TabIndex = 1
         Me.ListView2.UseCompatibleStateImageBehavior = False
@@ -201,25 +191,15 @@ Partial Class Form1
         Me.TreeView1.ContextMenuStrip = Me.ContextMenuStrip1
         Me.TreeView1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(162, Byte))
         Me.TreeView1.ForeColor = System.Drawing.Color.Silver
-        Me.TreeView1.Location = New System.Drawing.Point(0, 25)
+        Me.TreeView1.Location = New System.Drawing.Point(0, 1)
         Me.TreeView1.Name = "TreeView1"
         Me.TreeView1.ShowPlusMinus = False
         Me.TreeView1.ShowRootLines = False
-        Me.TreeView1.Size = New System.Drawing.Size(124, 455)
+        Me.TreeView1.Size = New System.Drawing.Size(124, 479)
         Me.TreeView1.TabIndex = 4
         '
         'Timer1
         '
-        '
-        'MenuStrip1
-        '
-        Me.MenuStrip1.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem})
-        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
-        Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(499, 24)
-        Me.MenuStrip1.TabIndex = 2
-        Me.MenuStrip1.Text = "MenuStrip1"
         '
         'Form1
         '
@@ -231,18 +211,13 @@ Partial Class Form1
         Me.Controls.Add(Me.ListView2)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.ListView1)
-        Me.Controls.Add(Me.MenuStrip1)
         Me.ForeColor = System.Drawing.Color.White
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
-        Me.MainMenuStrip = Me.MenuStrip1
         Me.MaximizeBox = False
         Me.Name = "Form1"
         Me.Text = "Surface"
         Me.ContextMenuStrip1.ResumeLayout(False)
-        Me.MenuStrip1.ResumeLayout(False)
-        Me.MenuStrip1.PerformLayout()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
 
@@ -265,6 +240,4 @@ Partial Class Form1
     Friend WithEvents SubCategoryToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents FileToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents FolderToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents FileToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents MenuStrip1 As MenuStrip
 End Class
