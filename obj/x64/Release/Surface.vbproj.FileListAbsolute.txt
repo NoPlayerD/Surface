@@ -1,0 +1,7 @@
+C:\Users\NoPlayer\Documents\.Surface\Surface\bin\x64\Release\Surface.exe.config
+C:\Users\NoPlayer\Documents\.Surface\Surface\bin\x64\Release\Surface.exe
+C:\Users\NoPlayer\Documents\.Surface\Surface\obj\x64\Release\Surface.Form1.resources
+C:\Users\NoPlayer\Documents\.Surface\Surface\obj\x64\Release\Surface.Resources.resources
+C:\Users\NoPlayer\Documents\.Surface\Surface\obj\x64\Release\Surface.vbproj.GenerateResource.cache
+C:\Users\NoPlayer\Documents\.Surface\Surface\obj\x64\Release\Surface.vbproj.CoreCompileInputs.cache
+C:\Users\NoPlayer\Documents\.Surface\Surface\obj\x64\Release\Surface.exe

@@ -22,8 +22,11 @@ Public Class Form1
 
         DataBase_Check()
         Timer1.Start()
+
+        Me.Text = "Surface v" + Application.ProductVersion
     End Sub
     Private Sub AddCategories()
+        'Kategorileri treeview'e ekleme
 
         Dim index As Integer = -1
 
@@ -49,6 +52,7 @@ Public Class Form1
     End Sub
     Public Sub Treeview_Adder(ByVal directoryValue As String, ByVal parentNode As TreeNode)
         'Treeview'e belirlenen klasörün altındaki klasörleri ekler
+        'UNUSED !!
         Try
 
             Dim directoryArray As String() = Directory.GetDirectories(directoryValue)
@@ -69,22 +73,26 @@ Public Class Form1
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
 
+        'Uygulamadaki Kategori sayısı gerçektekine eşit değilse Kategori Ekleme sub'unu çalıştır
         If Not TreeView1.Nodes.Count = My.Computer.FileSystem.GetDirectories(DataPath).Count Then
             AddCategories()
         End If
 
+        'Kategori seçilirse yenileme yapar
         If Category_Selected = True Then
             Category_Selected = False
             Reloads("file")
             Reloads("folder")
         End If
 
+        'Go Location butonu aktif/pasif ayarı
         If TreeView1.Focused = False Then
             ToolStripMenuItem2.Enabled = False
         Else
             ToolStripMenuItem2.Enabled = True
         End If
 
+        'Delete butonu aktif/pasif ayarı
         If TreeView1.SelectedNode IsNot Nothing And TreeView1.Focused = True Then
             ToolStripMenuItem8.Enabled = True
         ElseIf ListView1.FocusedItem IsNot Nothing Then
@@ -95,16 +103,17 @@ Public Class Form1
             ToolStripMenuItem8.Enabled = False
         End If
 
+        'Alt kategorileri gösterme
         TreeView1.ExpandAll()
     End Sub
 
     Private Sub TreeView1_AfterSelect(sender As Object, e As TreeViewEventArgs) Handles TreeView1.AfterSelect
+        'Kategori seçildi ise yenileme yapılması için değerleri günceller
         SubCategory_Selected = False
         Category_Selected = True
         If TreeView1.SelectedNode.Parent IsNot Nothing Then
             SubCategory_Selected = True
         End If
-
     End Sub
     Private Sub Reloads(type As String)
         'Reloads of listview 1 and 2
@@ -165,6 +174,7 @@ Public Class Form1
         End Try
     End Sub
     Private Sub ListView1_DoubleClick(sender As Object, e As EventArgs) Handles ListView1.DoubleClick
+        'Dosya açma
         Try
             If Not ListView1.FocusedItem.Index < 0 Then
                 If TreeView1.SelectedNode.Parent Is Nothing Then
@@ -178,6 +188,7 @@ Public Class Form1
     End Sub
 
     Private Sub ListView2_DoubleClick(sender As Object, e As EventArgs) Handles ListView2.DoubleClick
+        'Klasör açma
         Try
             If Not ListView2.FocusedItem.Index < 0 Then
                 If TreeView1.SelectedNode.Parent Is Nothing Then
@@ -191,14 +202,17 @@ Public Class Form1
     End Sub
 
     Private Sub TreeView1_BeforeCollapse(sender As Object, e As TreeViewCancelEventArgs) Handles TreeView1.BeforeCollapse
+        'Treeview alt kategorileri daraltma önlemesi
         e.Cancel = True
     End Sub
 
     Private Sub ToolStripMenuItem7_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem7.Click
+        'Refresh butonu
         QuickRefresh()
     End Sub
 
     Private Sub CategoryToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CategoryToolStripMenuItem.Click
+        'Yeni kategori oluşturma
         Dim name As String = InputBox("Name of your new Category: ")
         If Not name = vbNullString Then
             Try
@@ -210,6 +224,7 @@ Public Class Form1
     End Sub
 
     Private Sub SubCategoryToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SubCategoryToolStripMenuItem.Click
+        'Yeni alt kategori oluşturma
         Dim name As String = InputBox("Name of your new SubCategory: ")
         If Not name = vbNullString Then
             Try
@@ -221,9 +236,11 @@ Public Class Form1
     End Sub
 
     Private Sub FileToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles FileToolStripMenuItem1.Click
+        'Dosya/-lar taşıma
         Dim f As New OpenFileDialog
         f.Title = "Select your file to move: "
         f.Multiselect = True
+        MsgBox("Do not select shortcut files!", MsgBoxStyle.Information, "Warning")
         f.ShowDialog()
         Dim path As String
         If f.FileNames IsNot Nothing Then
@@ -245,6 +262,7 @@ Public Class Form1
     End Sub
 
     Private Sub FolderToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FolderToolStripMenuItem.Click
+        'Klasör taşıma
         Dim f As New FolderBrowserDialog
         f.Description = "Select your folder to move: "
         f.ShowDialog()
@@ -266,6 +284,7 @@ Public Class Form1
     End Sub
 
     Private Sub ToolStripMenuItem8_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem8.Click
+        'Silme butonu
         Dim focused As String
         If TreeView1.Focused = True Then
             focused = "TreeView1"
@@ -325,12 +344,14 @@ Public Class Form1
         QuickRefresh()
     End Sub
     Private Sub QuickRefresh()
+        'Hızlı refresh yapmak için çağırılabilecek bir sub
         AddCategories()
         ListView1.Items.Clear()
         ListView2.Items.Clear()
     End Sub
 
     Private Sub ToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem2.Click
+        '"Go Location" butonu
         Dim path As String
         Try
             If TreeView1.SelectedNode.Parent IsNot Nothing Then
@@ -345,7 +366,8 @@ Public Class Form1
         End Try
     End Sub
 
-    Private Sub GoAppDataLocationToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GoAppDataLocationToolStripMenuItem.Click
+    Private Sub ToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles GoAppDataLocationToolStripMenuItem.Click
+        '"Go AppData Location" butonu
         Try
             Process.Start(DataPath)
         Catch ex As Exception

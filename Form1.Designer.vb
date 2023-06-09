@@ -34,15 +34,15 @@ Partial Class Form1
         Me.FileToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.FolderToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem8 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GoAppDataLocationToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.imageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.ListView2 = New System.Windows.Forms.ListView()
         Me.imageList2 = New System.Windows.Forms.ImageList(Me.components)
         Me.Button1 = New System.Windows.Forms.Button()
         Me.TreeView1 = New System.Windows.Forms.TreeView()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
-        Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.GoAppDataLocationToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ContextMenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -56,7 +56,7 @@ Partial Class Form1
         Me.ListView1.LargeImageList = Me.imageList1
         Me.ListView1.Location = New System.Drawing.Point(124, 0)
         Me.ListView1.Name = "ListView1"
-        Me.ListView1.Size = New System.Drawing.Size(375, 255)
+        Me.ListView1.Size = New System.Drawing.Size(395, 255)
         Me.ListView1.SmallImageList = Me.imageList1
         Me.ListView1.TabIndex = 0
         Me.ListView1.UseCompatibleStateImageBehavior = False
@@ -67,7 +67,7 @@ Partial Class Form1
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
         Me.ContextMenuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
         Me.ContextMenuStrip1.ShowImageMargin = False
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(163, 148)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(163, 126)
         '
         'ToolStripMenuItem7
         '
@@ -96,7 +96,7 @@ Partial Class Form1
         Me.CategoryToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
         Me.CategoryToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.CategoryToolStripMenuItem.Name = "CategoryToolStripMenuItem"
-        Me.CategoryToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.CategoryToolStripMenuItem.Size = New System.Drawing.Size(145, 22)
         Me.CategoryToolStripMenuItem.Text = "Category"
         Me.CategoryToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage
         '
@@ -105,21 +105,21 @@ Partial Class Form1
         Me.SubCategoryToolStripMenuItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.SubCategoryToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
         Me.SubCategoryToolStripMenuItem.Name = "SubCategoryToolStripMenuItem"
-        Me.SubCategoryToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SubCategoryToolStripMenuItem.Size = New System.Drawing.Size(145, 22)
         Me.SubCategoryToolStripMenuItem.Text = "Sub Category"
         '
         'FileToolStripMenuItem1
         '
         Me.FileToolStripMenuItem1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
         Me.FileToolStripMenuItem1.Name = "FileToolStripMenuItem1"
-        Me.FileToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
+        Me.FileToolStripMenuItem1.Size = New System.Drawing.Size(145, 22)
         Me.FileToolStripMenuItem1.Text = "File"
         '
         'FolderToolStripMenuItem
         '
         Me.FolderToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
         Me.FolderToolStripMenuItem.Name = "FolderToolStripMenuItem"
-        Me.FolderToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.FolderToolStripMenuItem.Size = New System.Drawing.Size(145, 22)
         Me.FolderToolStripMenuItem.Text = "Folder"
         '
         'ToolStripMenuItem8
@@ -127,6 +127,23 @@ Partial Class Form1
         Me.ToolStripMenuItem8.Name = "ToolStripMenuItem8"
         Me.ToolStripMenuItem8.Size = New System.Drawing.Size(162, 22)
         Me.ToolStripMenuItem8.Text = "Delete"
+        '
+        'ToolStripSeparator1
+        '
+        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(159, 6)
+        '
+        'ToolStripMenuItem2
+        '
+        Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
+        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(162, 22)
+        Me.ToolStripMenuItem2.Text = "Go Location"
+        '
+        'GoAppDataLocationToolStripMenuItem
+        '
+        Me.GoAppDataLocationToolStripMenuItem.Name = "GoAppDataLocationToolStripMenuItem"
+        Me.GoAppDataLocationToolStripMenuItem.Size = New System.Drawing.Size(162, 22)
+        Me.GoAppDataLocationToolStripMenuItem.Text = "Go AppData Location"
         '
         'imageList1
         '
@@ -144,7 +161,7 @@ Partial Class Form1
         Me.ListView2.LargeImageList = Me.imageList2
         Me.ListView2.Location = New System.Drawing.Point(124, 253)
         Me.ListView2.Name = "ListView2"
-        Me.ListView2.Size = New System.Drawing.Size(375, 255)
+        Me.ListView2.Size = New System.Drawing.Size(395, 255)
         Me.ListView2.SmallImageList = Me.imageList2
         Me.ListView2.TabIndex = 1
         Me.ListView2.UseCompatibleStateImageBehavior = False
@@ -183,37 +200,22 @@ Partial Class Form1
         'Timer1
         '
         '
-        'ToolStripSeparator1
-        '
-        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(159, 6)
-        '
-        'ToolStripMenuItem2
-        '
-        Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
-        Me.ToolStripMenuItem2.Size = New System.Drawing.Size(162, 22)
-        Me.ToolStripMenuItem2.Text = "Go Location"
-        '
-        'GoAppDataLocationToolStripMenuItem
-        '
-        Me.GoAppDataLocationToolStripMenuItem.Name = "GoAppDataLocationToolStripMenuItem"
-        Me.GoAppDataLocationToolStripMenuItem.Size = New System.Drawing.Size(162, 22)
-        Me.GoAppDataLocationToolStripMenuItem.Text = "Go AppData Location"
-        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(499, 506)
+        Me.ClientSize = New System.Drawing.Size(519, 506)
         Me.Controls.Add(Me.TreeView1)
         Me.Controls.Add(Me.ListView2)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.ListView1)
         Me.ForeColor = System.Drawing.Color.White
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.Name = "Form1"
+        Me.ShowIcon = False
         Me.Text = "Surface"
         Me.ContextMenuStrip1.ResumeLayout(False)
         Me.ResumeLayout(False)
