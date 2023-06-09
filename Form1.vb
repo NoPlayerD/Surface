@@ -78,6 +78,23 @@ Public Class Form1
             Reloads("file")
             Reloads("folder")
         End If
+
+        If TreeView1.Focused = False Then
+            ToolStripMenuItem2.Enabled = False
+        Else
+            ToolStripMenuItem2.Enabled = True
+        End If
+
+        If TreeView1.SelectedNode IsNot Nothing And TreeView1.Focused = True Then
+            ToolStripMenuItem8.Enabled = True
+        ElseIf ListView1.FocusedItem IsNot Nothing Then
+            ToolStripMenuItem8.Enabled = True
+        ElseIf ListView2.FocusedItem IsNot Nothing Then
+            ToolStripMenuItem8.Enabled = True
+        Else
+            ToolStripMenuItem8.Enabled = False
+        End If
+
         TreeView1.ExpandAll()
     End Sub
 
@@ -311,5 +328,28 @@ Public Class Form1
         AddCategories()
         ListView1.Items.Clear()
         ListView2.Items.Clear()
+    End Sub
+
+    Private Sub ToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem2.Click
+        Dim path As String
+        Try
+            If TreeView1.SelectedNode.Parent IsNot Nothing Then
+                path = DataPath + TreeView1.SelectedNode.Parent.Text + "\#" + TreeView1.SelectedNode.Parent.Text + "#" + TreeView1.SelectedNode.Text + "\"
+            Else
+                path = DataPath + TreeView1.SelectedNode.Text + "\"
+            End If
+            Process.Start(path)
+        Catch ex As Exception
+            MsgBox("Please select a category to use this function!", MsgBoxStyle.Critical)
+            Exit Sub
+        End Try
+    End Sub
+
+    Private Sub GoAppDataLocationToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GoAppDataLocationToolStripMenuItem.Click
+        Try
+            Process.Start(DataPath)
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical)
+        End Try
     End Sub
 End Class
