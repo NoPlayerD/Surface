@@ -66,9 +66,8 @@ Partial Class Form1
         Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem7, Me.ToolStripSeparator2, Me.ToolStripMenuItem1, Me.ToolStripMenuItem8, Me.ToolStripSeparator1, Me.ToolStripMenuItem5, Me.ToolStripMenuItem6})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
         Me.ContextMenuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
-        Me.ContextMenuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Inherit
         Me.ContextMenuStrip1.ShowImageMargin = False
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(89, 126)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(156, 148)
         '
         'ToolStripMenuItem7
         '
@@ -126,7 +125,7 @@ Partial Class Form1
         'ToolStripMenuItem8
         '
         Me.ToolStripMenuItem8.Name = "ToolStripMenuItem8"
-        Me.ToolStripMenuItem8.Size = New System.Drawing.Size(88, 22)
+        Me.ToolStripMenuItem8.Size = New System.Drawing.Size(155, 22)
         Me.ToolStripMenuItem8.Text = "Delete"
         '
         'ToolStripSeparator1

@@ -178,9 +178,7 @@ Public Class Form1
     End Sub
 
     Private Sub ToolStripMenuItem7_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem7.Click
-        AddCategories()
-        ListView1.Items.Clear()
-        ListView2.Items.Clear()
+        QuickRefresh()
     End Sub
 
     Private Sub CategoryToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CategoryToolStripMenuItem.Click
@@ -248,5 +246,70 @@ Public Class Form1
                 MsgBox(ex.Message, MsgBoxStyle.Critical)
             End Try
         End If
+    End Sub
+
+    Private Sub ToolStripMenuItem8_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem8.Click
+        Dim focused As String
+        If TreeView1.Focused = True Then
+            focused = "TreeView1"
+        ElseIf ListView1.Focused = True Then
+            focused = "ListView1"
+        ElseIf ListView2.Focused = True Then
+            focused = "ListView2"
+        Else
+            Exit Sub
+        End If
+
+        Dim path As String
+        Try
+            If TreeView1.SelectedNode.Parent IsNot Nothing Then
+                path = DataPath + TreeView1.SelectedNode.Parent.Text + "\#" + TreeView1.SelectedNode.Parent.Text + "#" + TreeView1.SelectedNode.Text + "\"
+            Else
+                path = DataPath + TreeView1.SelectedNode.Text + "\"
+            End If
+        Catch ex As Exception
+            MsgBox("Please select a category to use this function!", MsgBoxStyle.Critical)
+            Exit Sub
+        End Try
+
+
+        Try
+            If focused = "ListView1" Then
+                Dim msg As MsgBoxResult
+                msg = MsgBox("Do you want to delete selected item?", MsgBoxStyle.OkCancel)
+                If msg = MsgBoxResult.Ok Then
+                    File.Delete(path + ListView1.FocusedItem.Text)
+                Else
+                    MsgBox("The operation was canceled..")
+                End If
+
+            ElseIf focused = "ListView2" Then
+                Dim msg As MsgBoxResult
+                msg = MsgBox("Do you want to delete selected item?", MsgBoxStyle.OkCancel)
+                If msg = MsgBoxResult.Ok Then
+                    Directory.Delete(path + ListView2.FocusedItem.Text, SearchOption.AllDirectories)
+                Else
+                    MsgBox("The operation was canceled..")
+                End If
+
+            ElseIf focused = "TreeView1" Then
+                Dim msg As MsgBoxResult
+                msg = MsgBox("Do you want to delete selected item?", MsgBoxStyle.OkCancel)
+                If msg = MsgBoxResult.Ok Then
+                    Directory.Delete(path, SearchOption.AllDirectories)
+                Else
+                    MsgBox("The operation was canceled..")
+                End If
+
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical)
+        End Try
+        QuickRefresh()
+    End Sub
+    Private Sub QuickRefresh()
+        AddCategories()
+        ListView1.Items.Clear()
+        ListView2.Items.Clear()
     End Sub
 End Class
