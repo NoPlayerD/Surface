@@ -34,9 +34,6 @@ Partial Class Form1
         Me.FileToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.FolderToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem8 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
-        Me.ToolStripMenuItem5 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripMenuItem6 = New System.Windows.Forms.ToolStripMenuItem()
         Me.imageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.ListView2 = New System.Windows.Forms.ListView()
         Me.imageList2 = New System.Windows.Forms.ImageList(Me.components)
@@ -63,11 +60,11 @@ Partial Class Form1
         '
         'ContextMenuStrip1
         '
-        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem7, Me.ToolStripSeparator2, Me.ToolStripMenuItem1, Me.ToolStripMenuItem8, Me.ToolStripSeparator1, Me.ToolStripMenuItem5, Me.ToolStripMenuItem6})
+        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem7, Me.ToolStripSeparator2, Me.ToolStripMenuItem1, Me.ToolStripMenuItem8})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
         Me.ContextMenuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
         Me.ContextMenuStrip1.ShowImageMargin = False
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(156, 148)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(89, 76)
         '
         'ToolStripMenuItem7
         '
@@ -125,25 +122,8 @@ Partial Class Form1
         'ToolStripMenuItem8
         '
         Me.ToolStripMenuItem8.Name = "ToolStripMenuItem8"
-        Me.ToolStripMenuItem8.Size = New System.Drawing.Size(155, 22)
+        Me.ToolStripMenuItem8.Size = New System.Drawing.Size(88, 22)
         Me.ToolStripMenuItem8.Text = "Delete"
-        '
-        'ToolStripSeparator1
-        '
-        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(85, 6)
-        '
-        'ToolStripMenuItem5
-        '
-        Me.ToolStripMenuItem5.Name = "ToolStripMenuItem5"
-        Me.ToolStripMenuItem5.Size = New System.Drawing.Size(88, 22)
-        Me.ToolStripMenuItem5.Text = "Copy"
-        '
-        'ToolStripMenuItem6
-        '
-        Me.ToolStripMenuItem6.Name = "ToolStripMenuItem6"
-        Me.ToolStripMenuItem6.Size = New System.Drawing.Size(88, 22)
-        Me.ToolStripMenuItem6.Text = "Paste"
         '
         'imageList1
         '
@@ -229,9 +209,6 @@ Partial Class Form1
     Friend WithEvents imageList2 As ImageList
     Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
     Friend WithEvents ToolStripMenuItem1 As ToolStripMenuItem
-    Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
-    Friend WithEvents ToolStripMenuItem5 As ToolStripMenuItem
-    Friend WithEvents ToolStripMenuItem6 As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator2 As ToolStripSeparator
     Friend WithEvents ToolStripMenuItem7 As ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem8 As ToolStripMenuItem
