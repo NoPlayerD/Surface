@@ -200,7 +200,7 @@ Public Class Form1
 
     Private Sub CategoryToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CategoryToolStripMenuItem.Click
         Dim name As String = InputBox("Name of your new Category: ")
-        If name IsNot Nothing Then
+        If Not name = vbNullString Then
             Try
                 Directory.CreateDirectory(DataPath + name)
             Catch ex As Exception
@@ -211,7 +211,7 @@ Public Class Form1
 
     Private Sub SubCategoryToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SubCategoryToolStripMenuItem.Click
         Dim name As String = InputBox("Name of your new SubCategory: ")
-        If name IsNot Nothing Then
+        If Not name = vbNullString Then
             Try
                 Directory.CreateDirectory(DataPath + TreeView1.SelectedNode.Text + "\#" + TreeView1.SelectedNode.Text + "#" + name)
             Catch ex As Exception

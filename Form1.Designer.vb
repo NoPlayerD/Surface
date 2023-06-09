@@ -72,13 +72,13 @@ Partial Class Form1
         'ToolStripMenuItem7
         '
         Me.ToolStripMenuItem7.Name = "ToolStripMenuItem7"
-        Me.ToolStripMenuItem7.Size = New System.Drawing.Size(88, 22)
+        Me.ToolStripMenuItem7.Size = New System.Drawing.Size(162, 22)
         Me.ToolStripMenuItem7.Text = "Refresh"
         '
         'ToolStripSeparator2
         '
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
-        Me.ToolStripSeparator2.Size = New System.Drawing.Size(85, 6)
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(159, 6)
         '
         'ToolStripMenuItem1
         '
@@ -87,7 +87,7 @@ Partial Class Form1
         Me.ToolStripMenuItem1.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.ToolStripMenuItem1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(88, 22)
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(162, 22)
         Me.ToolStripMenuItem1.Text = "Add"
         Me.ToolStripMenuItem1.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage
         '
@@ -96,7 +96,7 @@ Partial Class Form1
         Me.CategoryToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
         Me.CategoryToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.CategoryToolStripMenuItem.Name = "CategoryToolStripMenuItem"
-        Me.CategoryToolStripMenuItem.Size = New System.Drawing.Size(145, 22)
+        Me.CategoryToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.CategoryToolStripMenuItem.Text = "Category"
         Me.CategoryToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage
         '
@@ -105,27 +105,27 @@ Partial Class Form1
         Me.SubCategoryToolStripMenuItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.SubCategoryToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
         Me.SubCategoryToolStripMenuItem.Name = "SubCategoryToolStripMenuItem"
-        Me.SubCategoryToolStripMenuItem.Size = New System.Drawing.Size(145, 22)
+        Me.SubCategoryToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.SubCategoryToolStripMenuItem.Text = "Sub Category"
         '
         'FileToolStripMenuItem1
         '
         Me.FileToolStripMenuItem1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
         Me.FileToolStripMenuItem1.Name = "FileToolStripMenuItem1"
-        Me.FileToolStripMenuItem1.Size = New System.Drawing.Size(145, 22)
+        Me.FileToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
         Me.FileToolStripMenuItem1.Text = "File"
         '
         'FolderToolStripMenuItem
         '
         Me.FolderToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
         Me.FolderToolStripMenuItem.Name = "FolderToolStripMenuItem"
-        Me.FolderToolStripMenuItem.Size = New System.Drawing.Size(145, 22)
+        Me.FolderToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.FolderToolStripMenuItem.Text = "Folder"
         '
         'ToolStripMenuItem8
         '
         Me.ToolStripMenuItem8.Name = "ToolStripMenuItem8"
-        Me.ToolStripMenuItem8.Size = New System.Drawing.Size(88, 22)
+        Me.ToolStripMenuItem8.Size = New System.Drawing.Size(162, 22)
         Me.ToolStripMenuItem8.Text = "Delete"
         '
         'imageList1
@@ -186,7 +186,7 @@ Partial Class Form1
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(124, 6)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(159, 6)
         '
         'ToolStripMenuItem2
         '
